@@ -26,4 +26,4 @@
 - **Networking:** Configure Cisco routers and switches including routing protocols EIGRP,
   OSPF, Cisco Interconnecting IOS.
 
-![Programmer](image.jpg)
+![](image.jpg?raw=true)
