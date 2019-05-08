@@ -17,10 +17,11 @@
 - Dean’s Honor List: - Fall 2018-2019. - Spring 2017-2018. - Spring 2016-2017. 2.**BACCALAUREATE | 2016 | CANADIAN HIGH SCHOOL**
 - LS Baccalaureate.
 
-<!-- ##**TECHNICAL SKILLS**
+##**TECHNICAL SKILLS**
+
 - **Database Management System:** Microsoft SQL Server.
 - **Programming Languages:** experienced in: java (including native android applications
-development using Android SDK), C#, .NET.
+  development using Android SDK), C#, .NET.
 - **Web Programming Languages:** ASP.NET, JavaScript.
 - **Networking:** Configure Cisco routers and switches including routing protocols EIGRP,
-OSPF, Cisco Interconnecting IOS. -->
+  OSPF, Cisco Interconnecting IOS.
