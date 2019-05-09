@@ -11,7 +11,9 @@
 - I’ve ability to work under pressure with excellent communication skills and self-
   confident.
 
-##**EDUCATION** 1.**BS | 2017-PRESENT | LEBANESE INTERNATIONAL UNIVERSITY**
+##**EDUCATION**
+
+1.**BS | 2017-PRESENT | LEBANESE INTERNATIONAL UNIVERSITY**
 
 - Major: Computer Science, GPA: 3.87/4.00
 - Dean’s Honor List: - Fall 2018-2019. - Spring 2017-2018. - Spring 2016-2017. 2.**BACCALAUREATE | 2016 | CANADIAN HIGH SCHOOL**
