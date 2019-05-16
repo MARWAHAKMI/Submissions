@@ -1,0 +1,251 @@
+header {
+  width: 90%;
+  height: 160px;
+  background: lightcyan;
+  margin: 10px auto;
+}
+hgroup {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color: purple;
+  font-weight: bold;
+  position: absolute;
+  left: 200px;
+}
+.content {
+  display: grid;
+  width: 70%;
+  margin: 0 auto;
+  grid-template-rows: br br br;
+  grid-template-areas:
+    'about competencies'
+    'experiences edu'
+    'hobbies hobbies';
+}
+#about {
+  grid-area: about;
+}
+#competencies {
+  grid-area: competencies;
+  width: 100%;
+}
+#experiences {
+  grid-area: experiences;
+}
+#education {
+  grid-area: edu;
+}
+#hobbies {
+  grid-area: hobbies;
+}
+h3 {
+  border-bottom: 1px solid darkgray;
+  padding-bottom: 5px;
+}
+h3::before {
+  content: '';
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  background: purple;
+  border-radius: 10px;
+  margin-right: 5px;
+}
+#contact {
+  position: absolute;
+  height: 125px;
+  width: 120px;
+  top: 25px;
+  left: 690px;
+  line-height: 5px;
+  background-color: lightpink;
+  border-right: 461px lightcyan solid;
+}
+.contact-type {
+  color: white;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  padding-left: 10px;
+}
+.contact-value {
+  color: lightpink;
+  padding-left: 90px;
+  line-height: 1px;
+  width: 100px;
+}
+.contact-value a {
+  color: lightpink;
+}
+.contact-email {
+  margin: 0px;
+  margin-top: 10px;
+}
+h4 {
+  margin-bottom: 0px;
+}
+.experience-details {
+  font-size: 13px;
+  padding-left: 8px;
+}
+p {
+  font-size: 14px;
+  font-weight: 100;
+  text-align: justify;
+  padding: 10px;
+  padding-left: 0px;
+  padding-top: 3px;
+  padding-bottom: 0px;
+}
+.experience-type {
+  color: purple;
+  font-weight: bold;
+  font-size: 1em;
+}
+.experience-institution {
+  font-weight: 100;
+  color: purple;
+  font-size: 14px;
+}
+.experience-institution::before {
+  content: '@ ';
+  color: pink;
+}
+.experience-location::before {
+  content: 'In';
+  color: gray;
+}
+.experience-location::after {
+  content: 'on';
+  color: gray;
+}
+.experience-details {
+  color: gray;
+}
+.experience-date-separator {
+  color: pink;
+  font-weight: bold;
+}
+#hobbies ul li {
+  font-size: 15px;
+}
+.skill {
+  background: pink;
+  margin-bottom: 3px;
+  position: relative;
+  padding: 3px;
+}
+.skill > span {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  background: rgb(173, 51, 173);
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color: white;
+}
+.skill[data-skill='5'] > span {
+  width: 50%;
+}
+.skill[data-skill='3'] > span {
+  width: 30%;
+}
+.skill[data-skill='1'] > span {
+  width: 22%;
+}
+.skill[data-skill='9'] > span {
+  width: 90%;
+  opacity: 0.6;
+}
+.skill[data-skill='7'] > span {
+  width: 70%;
+  opacity: 0.6;
+}
+.skill[data-skill='5']:nth-child(2) > span {
+  width: 50%;
+  opacity: 0.6;
+}
+a {
+  text-decoration: none;
+}
+
+/* ///////////////////////////////////////////////////////////////////////////////////////////  */
+/* REsponsive */
+
+@media (max-width: 500px) {
+  .content {
+    display: grid;
+    grid-template-rows: br br br br br br;
+    grid-template-areas:
+      'about'
+      'competencies'
+      'experiences'
+      'edu'
+      'hobbies'
+      'contact';
+  }
+  #about {
+    grid-area: about;
+  }
+  #competencies {
+    grid-area: competencies;
+    width: 100%;
+  }
+  #experiences {
+    grid-area: experiences;
+  }
+  #education {
+    grid-area: edu;
+  }
+  #hobbies {
+    grid-area: hobbies;
+  }
+  #contact {
+    grid-area: contact;
+  }
+
+  header {
+    width: 100%;
+    height: 300px;
+    background: lightgray;
+    /* margin: 10px auto; */
+  }
+  hgroup {
+    position: absolute;
+    left: 30px;
+    top: 20px;
+    color: red;
+  }
+  figure {
+    left: 10px;
+    top: 130px;
+    position: absolute;
+  }
+  #contact {
+    position: unset;
+    height: 150px;
+    border-right: none;
+    background-color: white;
+  }
+  .contact-type {
+    color: black;
+    padding-left: 10px;
+    margin-top: 5px;
+  }
+  h3 {
+    border-bottom: 1px solid darkgray;
+    padding-bottom: 5px;
+  }
+  h3::before {
+    content: '';
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    background: red;
+    border-radius: 10px;
+    margin-right: 5px;
+  }
+  #contact h3 {
+    border-bottom: 1px solid darkgray;
+    padding-bottom: 5px;
+  }
+}
