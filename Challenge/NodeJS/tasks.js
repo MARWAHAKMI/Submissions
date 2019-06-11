@@ -40,11 +40,18 @@ function onDataReceived(text) {
   else if(text === 'hello\n'){
     hello();
   }
+  else if(text === 'help\n')
+  {
+    help();
+  }
   else{
     unknownCommand(text);
   }
 }
 
+
+/////
+var list = [{command:'hello'}, {command:'quit'}];
 
 /**
  * prints "unknown command"
@@ -65,6 +72,18 @@ function unknownCommand(c){
  */
 function hello(){
   console.log('hello!')
+}
+
+
+/*
+  help
+ */
+function help()
+{
+  for(let i = 0 ; i < list.length ; i++)
+  {
+    console.log((i+1)+ "- " +list[i].command);
+  }
 }
 
 
