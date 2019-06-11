@@ -46,6 +46,10 @@ function onDataReceived(text) {
   {
     help();
   }
+  else if(text === 'list\n')
+  {
+    listTasks();
+  }
   else{
     unknownCommand(text);
   }
@@ -89,6 +93,17 @@ function help()
   }
 }
 
+/*
+*
+*
+*/ 
+function listTasks()
+{
+  for(let i = 0 ; i < list.length ; i++)
+  {
+    console.log((i+1)+ "- " +list[i].command);
+  }
+}
 
 /**
  * Exits the application
