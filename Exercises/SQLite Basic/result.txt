@@ -1,0 +1,176 @@
+
+
+/* 
+*Marwa's Queries
+*/
+
+		Basic Queries
+		-------------
+
+1.Get all the names of students in the database 
+	
+	select Name from students
+
+	"Alex"
+	"Amani"
+	"Basma"
+	"Hasan"
+	"Jana"
+	"Robert"
+-------------------------------------------------------------
+
+2.Get all the data of students above 30 years old
+
+	select * from students where Age > 30 
+	
+	"5"	"Robert"	"34"	"M"	"500"
+	"6"	"Jana"	"33"	"F"	"500"
+-------------------------------------------------------------
+
+3. Get the names of the females who are 30 years old
+
+	select Name from students where Gender = 'F' and Age = 30
+
+	No result Found
+------------------------------------------------------------
+
+4. Get the number of Points of Alex
+
+	select Points from students where Name = "Alex" 
+
+	100
+------------------------------------------------------------
+
+5. Add yourself as a new student
+	
+	insert  into students (ID , Name , Age , Gender , Points) values (8 , "Marwa" , 20  , 'F' , 400)
+
+	Query executed successfully: insert  into students (ID , Name , Age , Gender , Points) values (8 , "Marwa" , 20  , 'F' , 400) (took 		37ms, 1 rows affected)
+--------------------------------------------------------------------------------------------
+
+6. Increase the points of Basma because she solved a new exercise
+
+	update students set Points = 500  where Name = "Basma"
+
+	Query executed successfully: update students set Points = 500  where Name = "Basma" (took 		0ms, 1 rows affected)
+-----------------------------------------------------------------------------------------
+
+7. Decrease the points of Alex because he's late today 8.
+
+	update students set Points = 50  where Name = "Alex" 
+
+	Query executed successfully: update students set Points = 50  where Name = "Alex" (took 	0ms, 1 rows affected)
+---------------------------------------------------------------------------------------------
+
+			Creating Table
+			--------------
+
+--> create table graduates
+	(
+	ID integer notnull ,
+	Name text notnull,
+	Age integer ,
+	Gender text,
+	Points integer,
+	Graduation text ,
+	primary key (ID),
+	autoincrement(ID),
+	unique(Name)
+	
+	);
+--> update graduate set Graduation = "08/09/2018" where ID = 4
+
+--> delete from students where ID = 4 
+
+-----------------------------------------------------------------------------------------
+
+
+			Join
+			----
+11. Produce a table that contains, for each employee, his/her name, company name, and company date.
+	
+	select employees.Name , companies.Name , companies.Date
+	from companies inner join employees  on  companies.Name = employees.Company
+
+	"Marc"	"Google"	"1998"
+	"Maria"	"Google"	"1998"
+	"Alaa"	"Facebook"	"2004"
+	"Hala"	"Snapchat"	"2011"
+----------------------------------------------------------------------------------------------
+
+12. Find the name of employees that work in companies made before 2000. 
+
+	select employees.Name from employees inner join companies
+	on employees.Company = companies.Name
+ 	where companies.Date < 2000
+
+	"Marc"
+	"Maria"
+-----------------------------------------------------------------------------------------------
+
+13. Find the name of company that has a graphic designer. 
+		
+	select companies.Name from companies inner join employees
+	on employees.Company = companies.Name
+ 	where employees.Role = "Graphic Designer"
+	
+	Snapchat
+------------------------------------------------------------------------------------------------
+
+			Count & Filter
+			--------------
+
+14. Find the person with the highest number of points in students
+		
+	select  Name, max(Points) as Points from students 
+
+	"Robert"	"500"
+-----------------------------------------------------------------------
+
+15. Find the average of points in students 
+
+	select avg(Points) from students
+	
+	316.666666666667
+--------------------------------------------------------------------
+
+16. Find the number of students that have 500 points
+
+	select count(Name) 
+	from students
+	where Points = 500
+
+	2
+--------------------------------------------------------------------
+
+17. Find the names of students that contains 's' 
+
+	select Name
+	from students
+	where Name like "%s%"
+
+	"Basma"
+	"Hasan"
+-------------------------------------------------------------------
+
+18. Find all students based on the decreasing order of their points 
+
+	select Name
+	from students
+	order by Points desc
+
+	"Robert"
+	"Jana"
+	"Basma"
+	"Amani"
+	"Hasan"
+	"Alex"
+
+----------------------------------------------------------------------
+
+----------------------------------------------------------No Entry--------------------------------------------------------------------------
+
+
+
+
+
