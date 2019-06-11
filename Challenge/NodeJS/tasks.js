@@ -69,7 +69,8 @@ function unknownCommand(c){
 
 /**
  * Says hello
- *
+ * Say hello  + whatever you wrote next to it. + "!"
+ * 
  * @returns {void}
  */
 function hello(splittingText){
