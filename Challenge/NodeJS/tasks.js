@@ -76,7 +76,7 @@ function hello(){
 
 
 /*
-  help
+  list all commands that are exist in command line.
  */
 function help()
 {
