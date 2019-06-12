@@ -50,6 +50,10 @@ function onDataReceived(text) {
   {
     listTasks();
   }
+  else if(splittingText[0] === 'add'  || text === 'add\n')
+  {
+    add(splittingText)
+  }
   else{
     unknownCommand(text);
   }
@@ -57,7 +61,8 @@ function onDataReceived(text) {
 
 
 /////
-var list = [{command:'hello'}, {command:'quit'}];
+var list = [{command:'hello'}, {command:'quit Or exit'}];
+var ArrayList = ['hello' , 'quit'];
 
 /**
  * prints "unknown command"
@@ -95,13 +100,26 @@ function help()
 
 /*
 *
-*
 */ 
 function listTasks()
 {
-  for(let i = 0 ; i < list.length ; i++)
+  for(let i = 0 ; i < ArrayList.length ; i++)
   {
-    console.log((i+1)+ "- " +list[i].command);
+    console.log((i+1)+ "- " +ArrayList[i]);
+  }
+}
+
+//Add Function:
+function add(splittingText)
+{
+  var addedTask ;
+  if(splittingText[1])
+  {
+    ArrayList.push(splittingText[1]);
+  } 
+  else
+  {
+    console.log("Error!!!!");
   }
 }
 
