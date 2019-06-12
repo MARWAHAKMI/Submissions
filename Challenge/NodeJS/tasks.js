@@ -54,6 +54,10 @@ function onDataReceived(text) {
   {
     add(splittingText)
   }
+  else if(text === 'remove\n' || splittingText[0] === 'remove')
+  {
+    remove(splittingText , text);
+  }
   else{
     unknownCommand(text);
   }
@@ -120,6 +124,21 @@ function add(splittingText)
   else
   {
     console.log("Error!!!!");
+  }
+}
+
+/*
+* Remove Function
+*/
+function remove(splittingText , text)
+{
+  if(text === 'remove\n')
+  {
+    ArrayList.pop();
+  }
+  else
+  {
+    ArrayList.splice(splittingText[1]-1 , 1);
   }
 }
 
