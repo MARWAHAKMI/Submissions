@@ -137,6 +137,10 @@ function remove(splittingText , text)
   {
     ArrayList.pop();
   }
+  else if(splittingText[1] >= ArrayList.length)
+  {
+    console.log(" Error! the number of the command isn't exist!")
+  }
   else
   {
     ArrayList.splice(splittingText[1]-1 , 1);
