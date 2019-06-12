@@ -244,12 +244,26 @@ function uncheck(splittingText , text)
   }
 }
 
+var fs = require('fs');
+function SaveData(data , loc)
+{
+  try
+  {
+    fs.writeFileSync(loc , JSON.stringify(data))
+  }
+  catch(ex)
+  {
+    console.log(ex);
+  }
+}
+
 /**
  * Exits the application
  *
  * @returns {void}
  */
 function quit(){
+  SaveData(list , 'Data.json')
   console.log('Quitting now, goodbye!')
   process.exit();
 }
