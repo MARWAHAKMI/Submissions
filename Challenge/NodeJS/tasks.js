@@ -118,6 +118,7 @@ function help()
     console.log((i+1)+ "- " +list[i].command);
   }
   console.log(">list [list all commands]\n>remove [remove last command exist in list]\n>remove -number- [removes specific command]\n>add [add new command]")
+  console.log(">check [mark the command]\n>uncheck [uncheck the command]")
 }
 
 /*
