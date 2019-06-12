@@ -58,6 +58,10 @@ function onDataReceived(text) {
   {
     remove(splittingText , text);
   }
+  else if(text === 'edit\n' || splittingText[0] === 'edit')
+  {
+    edit(splittingText , text);
+  }
   else{
     unknownCommand(text);
   }
@@ -66,7 +70,7 @@ function onDataReceived(text) {
 
 /////
 var list = [{command:'hello'}, {command:'quit Or exit'}];
-var ArrayList = ['hello' , 'quit'];
+var ArrayList = ['hello' , 'quit' , 'help' , 'remove'];
 
 /**
  * prints "unknown command"
@@ -144,6 +148,29 @@ function remove(splittingText , text)
   else
   {
     ArrayList.splice(splittingText[1]-1 , 1);
+  }
+}
+
+/*
+*Edit function
+ */
+function edit(splittingText , text)
+{
+  if(text === 'edit\n')
+  {
+    console.log("Error message!");
+  }
+  else if(isNaN(splittingText[1]*1))
+  {
+    splittingText.shift(); // remove edit from the text.
+    ArrayList.splice(ArrayList.length-1 , 1 , splittingText.join())
+  }
+  else
+  {
+    var newText = splittingText[1]
+    splittingText.shift();
+    splittingText.shift();
+    ArrayList.splice(newText-1 , 1 , splittingText.join().replace('\n' , ''));
   }
 }
 
