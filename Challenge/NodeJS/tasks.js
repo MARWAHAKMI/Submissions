@@ -48,7 +48,8 @@ function onDataReceived(text) {
   }
   else if(text === 'list\n')
   {
-    listTasks();
+    //listTasks();
+    listObjects();
   }
   else if(splittingText[0] === 'add'  || text === 'add\n')
   {
@@ -62,6 +63,10 @@ function onDataReceived(text) {
   {
     edit(splittingText , text);
   }
+  else if(text === 'check list\n')
+  {
+    listObjects();
+  }
   else{
     unknownCommand(text);
   }
@@ -69,7 +74,7 @@ function onDataReceived(text) {
 
 
 /////
-var list = [{command:'hello'}, {command:'quit Or exit'}];
+var list = [{command:'hello' , done: true}, {command:'quit Or exit' , done: false}];
 var ArrayList = ['hello' , 'quit' , 'help' , 'remove'];
 
 /**
@@ -117,14 +122,32 @@ function listTasks()
     console.log((i+1)+ "- " +ArrayList[i]);
   }
 }
-
+function listObjects()
+{
+  for(let i = 0 ; i < list.length ; i++)
+  {
+    if(list[i].done)
+    {
+      console.log((i+1) +". [✓] "+list[i].command )
+    }
+    else
+    {
+      console.log((i+1) +". [ ] "+list[i].command )
+    }
+  }
+}
 //Add Function:
 function add(splittingText)
 {
   var addedTask ;
   if(splittingText[1])
   {
-    ArrayList.push(splittingText[1]);
+    //ArrayList.push(splittingText[1]);
+    splittingText.shift();
+    list.push({
+      command: splittingText.join().replace(',' , ' '),
+      done: true 
+    });
   } 
   else
   {
@@ -139,15 +162,16 @@ function remove(splittingText , text)
 {
   if(text === 'remove\n')
   {
-    ArrayList.pop();
+    //ArrayList.pop();
+    list.pop();
   }
-  else if(splittingText[1] >= ArrayList.length)
+  else if(splittingText[1] >= list.length)
   {
     console.log(" Error! the number of the command isn't exist!")
   }
   else
   {
-    ArrayList.splice(splittingText[1]-1 , 1);
+    list.splice(splittingText[1]-1 , 1);
   }
 }
 
@@ -163,14 +187,13 @@ function edit(splittingText , text)
   else if(isNaN(splittingText[1]*1))
   {
     splittingText.shift(); // remove edit from the text.
-    ArrayList.splice(ArrayList.length-1 , 1 , splittingText.join())
+    list.splice(list.length-1 , 1 , {command: splittingText.join() , done: false});
   }
   else
   {
-    var newText = splittingText[1]
     splittingText.shift();
     splittingText.shift();
-    ArrayList.splice(newText-1 , 1 , splittingText.join().replace('\n' , ''));
+    list.splice(splittingText[1]-1 , 1 , {command: splittingText.join().replace('\n' , '') , done: false});
   }
 }
 
