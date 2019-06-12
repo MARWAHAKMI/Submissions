@@ -243,7 +243,9 @@ function uncheck(splittingText , text)
     }
   }
 }
-
+/*
+* Store data
+*/
 var fs = require('fs');
 function SaveData(data , loc)
 {
@@ -256,6 +258,24 @@ function SaveData(data , loc)
     console.log(ex);
   }
 }
+
+/*
+*Load Data
+*/
+function LoadData(loc)
+{
+  try
+  {
+    // retrieve data from file.json 
+    return fs.readFileSync(loc , 'utf8')
+  }
+  catch(ex)
+  {
+    console.log(ex);
+  }
+}
+list = JSON.parse(LoadData('Data.json'));
+
 
 /**
  * Exits the application
