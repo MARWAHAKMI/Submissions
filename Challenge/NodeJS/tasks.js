@@ -67,6 +67,14 @@ function onDataReceived(text) {
   {
     listObjects();
   }
+  else if(text === 'check\n' || splittingText[0] === 'check')
+  {
+    check(splittingText , text);
+  }
+  else if(text === 'uncheck\n' || splittingText[0] === 'uncheck')
+  {
+    uncheck(splittingText , text);
+  }
   else{
     unknownCommand(text);
   }
@@ -194,6 +202,44 @@ function edit(splittingText , text)
     splittingText.shift();
     splittingText.shift();
     list.splice(splittingText[1]-1 , 1 , {command: splittingText.join().replace('\n' , '') , done: false});
+  }
+}
+
+/*
+* Check Function
+*/
+function check(splittingText , text)
+{
+  if(text === 'check\n')
+  {
+    console.log("Error Message!")
+  }
+  else if(!isNaN(splittingText[1]))
+  {
+    if(list[splittingText[1] - 1].done == false)
+    {
+      list[splittingText[1]-1].done = true
+      listObjects();
+    }
+  }
+}
+
+/*
+* UnCheck Function
+*/
+function uncheck(splittingText , text)
+{
+  if(text === 'uncheck\n')
+  {
+    console.log("Error Message!")
+  }
+  else if(!isNaN(splittingText[1]))
+  {
+    if(list[splittingText[1] - 1].done == true)
+    {
+      list[splittingText[1]-1].done = false
+      listObjects();
+    }
   }
 }
 
