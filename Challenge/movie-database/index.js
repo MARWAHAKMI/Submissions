@@ -125,6 +125,21 @@ app.get('/movies/add' , function(request ,result){
 });
 ///////////////////////End Step#8/////////////////////////////////////////
 
+///////////////////////Step#9/////////////////////////////////////////////
+app.get('/movies/delete/:ID' , function(request ,result){
+    var Id = request.params.ID ;
+    if(Id > 0 && Id<= movies.length)
+    {
+        movies.splice(Id-1 , 1)
+        result.send({status:200, data:movies});
+    }
+    else
+    {
+        result.send({status:404, error:true, message:'the movie <ID> does not exist'});
+    }
+});
+////////////////////End Step#9/////////////////////////////////////////////////////////
+
 
 
 
