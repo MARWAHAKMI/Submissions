@@ -140,6 +140,30 @@ app.get('/movies/delete/:ID' , function(request ,result){
 });
 ////////////////////End Step#9/////////////////////////////////////////////////////////
 
+///////////////////////////Step#10/////////////////////////////////////////////////////
+app.get('/movies/update/:ID' , function(request ,result){
+    var Id = request.params.ID ;
+    var t = request.query.title ;
+    var r = request.query.rating; 
+    if(Id > 0 && Id <= movies.length) 
+    {
+    if((t != movies[Id-1].title) && t != undefined)
+    {
+        movies[Id-1].title = t ;
+    }
+    if((r != movies[Id-1].rating) && r != undefined)
+    {
+        movies[Id-1].rating =  r*1 ;
+    }
+    result.send({status:200, data: movies});
+    }
+    else
+    {
+        result.send({status:404, error:true, message:'the movie <ID> does not exist'});
+    }   
+})
+////////////////////////////////End Step#10/////////////////////////////////////////////////////////
+
 
 
 
