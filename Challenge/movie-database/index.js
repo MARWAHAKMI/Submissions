@@ -80,6 +80,33 @@ app.get('/movies/read/by-title' , function(request ,result){
         return 0;
     })});
 })
+///////////////////End step#6////////////////////////////////////////
+
+/////////////////Step#7//////////////////////////////////////////
+app.get('/movies/read/id/:ID' , function(request ,result){
+    var Id = request.params.ID ;
+    if(Id > 0 && Id<= movies.length)
+    {
+        result.send({status:200, data:movies[Id-1]});
+    }
+    else
+    {
+        result.send({status:404, error:true, message:'the movie <ID> does not exist'}); 
+    }
+    // for(var i = 0 ; i < movies.length ; i++)
+    // {
+    //     if(Id == i+1)
+    //     {
+    //         result.send({status:200, data:movies[i]});
+    //     }
+    // }
+    // result.send({status:404, error:true, message:'the movie <ID> does not exist'});    
+});
+////////////////////End Step#7/////////////////////////////////////////////
+
+
+
+
 
 
 
